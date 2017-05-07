@@ -1,0 +1,21 @@
+version: "2"
+
+services:
+  demo-web:
+    image: rthijs/quote
+    ports: 
+      - "8080:8080"
+    links:
+      - demo-db
+
+  demo-db:
+    image: postgres:9.6.2-alpine
+    expose:
+      - 5432
+    ports:
+      - "5432:5432"
+    volumes:
+      - demo-db-data:/var/lib/postgresql/data
+
+volumes:
+  demo-db-data: {}
