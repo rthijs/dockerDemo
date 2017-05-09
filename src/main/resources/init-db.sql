@@ -1,3 +1,12 @@
+CREATE TABLE public.quote (
+	id int8 NOT NULL,
+	author varchar(255) NULL,
+	quote varchar(1023) NULL,
+	CONSTRAINT quote_pkey PRIMARY KEY (id)
+);
+
+CREATE SEQUENCE public.seq_quote INCREMENT BY 1;
+
 INSERT INTO public.quote (id,author,quote) VALUES (
 nextval('seq_quote'),'Donald Trump','Private jets cost a lot of money.');
 INSERT INTO public.quote (id,author,quote) VALUES (
@@ -12,3 +21,5 @@ INSERT INTO public.quote (id,author,quote) VALUES (
 nextval('seq_quote'),'John Wilmot','Before I got married I had six theories about bringing up children; now I have six children and no theories.');
 INSERT INTO public.quote (id,author,quote) VALUES (
 nextval('seq_quote'),'Docent tijdens mijn examen','Handboeken zijn niet toegelaten, telepathie wel.');
+
+COMMIT;
