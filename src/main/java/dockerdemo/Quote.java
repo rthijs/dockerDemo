@@ -4,9 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 
 @Entity
+@NamedQuery(
+        name="Quote.findRandom",
+        query="select q from Quote q order by random()"
+)
 @SequenceGenerator(name="seq_quote", initialValue=1, allocationSize=1,sequenceName="SEQ_QUOTE")
 public class Quote {
 

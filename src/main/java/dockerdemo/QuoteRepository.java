@@ -9,6 +9,9 @@ public interface QuoteRepository extends CrudRepository<Quote, Long> {
 
     List<Quote> findByAuthor(String author);
     
+    @Query(name="Quote.findRandom")
+    List<Quote> findFirstRandom();
+    
     @Query("select q from Quote q order by random()") //JPQL doesn't understand limit 1
     List<Quote> findRandom();
 }

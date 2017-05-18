@@ -16,7 +16,8 @@ public class QuoteServiceImpl implements QuoteService {
 
 	@Override
 	public Quote getRandomQuote() {
-		return quoteRepository.findRandom().get(0);
+		System.out.println("number of quotes in resultset: " + quoteRepository.findFirstRandom().size());
+		return quoteRepository.findFirstRandom().get(0);
 	}
 
 	@Override
